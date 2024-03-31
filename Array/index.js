@@ -1,30 +1,26 @@
-// 1. รับเลขจำนวนเต็มเก็บไว้ในตัวแปรอาร์เรย์
-const numbers = [];
-const numCount = parseInt(prompt("กรุณาใส่จำนวนตัวเลขที่ต้องการ:"));
+let data = document.getElementById("data")
+let result = document.getElementById("result")
+let numbers = []
 
-for (let i = 0; i < numCount; i++) {
-    const num = parseInt(prompt(`กรุณาใส่ตัวเลขที่ ${i + 1}:`));
-    console.log(num)
-    numbers.push(num);
+function add() {
+    numbers.push(data.value)
+    data.value = ""
+    result.innerHTML = numbers
 }
 
-// 2. แสดงข้อมูลภายในอาร์เรย์
-console.log("ข้อมูลในอาร์เรย์:");
-for (const num of numbers) {
-    console.log(num);
-}
-
-// 3. คำนวณหาผลคูณของเลขคู่และผลคูณเลขคี่
 let evenProduct = 1;
 let oddProduct = 1;
 
-for (const num of numbers) {
-    if (num % 2 === 0) {
-        evenProduct *= num;
-    } else {
-        oddProduct *= num;
+function results() {
+    for (const num of numbers) {
+        if (num % 2 === 0) {
+            evenProduct *= num;
+        } else {
+            oddProduct *= num;
+        }
     }
+    console.log(`ผลคูณของเลขคู่: ${evenProduct}`);
+    console.log(`ผลคูณของเลขคี่: ${oddProduct}`);
 }
 
-console.log(`ผลคูณของเลขคู่: ${evenProduct}`);
-console.log(`ผลคูณของเลขคี่: ${oddProduct}`);
+

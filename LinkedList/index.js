@@ -16,7 +16,7 @@ class LinkedList {
     // เพิ่มโหนดใหม่ที่สุดของ LinkedList
     add(data) {
         const newNode = new Node(data); // สร้างโหนดใหม่
-        
+
         // ถ้า LinkedList ยังว่างอยู่
         if (!this.head) {
             this.head = newNode; // ตั้งโหนดแรกเป็นโหนดใหม่
@@ -48,9 +48,24 @@ class LinkedList {
 
 // ตัวอย่างการใช้งาน LinkedList
 const linkedList = new LinkedList();
-linkedList.add(1);
-linkedList.add(2);
-linkedList.add(3);
+
+let data = document.getElementById("data")
+let result = document.getElementById("result")
+
+function add() {
+    linkedList.add(data.value)
+    console.log(data.value)
+    data.value = ""
+}
+function displays() {
+    console.log("---ข้อมูลใน LinkedList---")
+    linkedList.display();
+
+}
+
+// linkedList.add(1);
+// linkedList.add(2);
+// linkedList.add(3);
 
 // แสดงข้อมูลทั้งหมดใน LinkedList
-linkedList.display();
+// linkedList.display();

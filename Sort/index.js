@@ -58,8 +58,29 @@ const shellSort = {
     }
 };
 
-// ตัวอย่างการใช้งาน
-const arr = [64, 34, 25, 12, 22, 11, 90];
-console.log("Bubble Sort:", bubbleSort.sort(arr));
-console.log("Insertion Sort:", insertionSort.sort(arr));
-console.log("Shell Sort:", shellSort.sort(arr));
+let data = document.getElementById("data")
+let result = document.getElementById("result")
+let info = []
+
+  function add(){
+    info.push(data.value)
+    console.log(data.value)
+    data.value = ""
+    result.innerHTML = info
+  }
+
+  function bubble(){
+    console.log(bubbleSort.sort(info))
+  }
+  function insertion(){
+    console.log(insertionSort.sort(info))
+  }
+  function shell(){
+    console.log(shellSort.sort(info))
+  }
+
+// // ตัวอย่างการใช้งาน
+// const arr = [64, 34, 25, 12, 22, 11, 90];
+// console.log("Bubble Sort:", bubbleSort.sort(arr));
+// console.log("Insertion Sort:", insertionSort.sort(arr));
+// console.log("Shell Sort:", shellSort.sort(arr));
