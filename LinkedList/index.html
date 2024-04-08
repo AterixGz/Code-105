@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../wholeWorld.css">
+    <title>LinkedList</title>
 </head>
 <body>
     <form action="#">
-        <label for="" >กรอกข้อมูลลง LinkedList</label>
-        <input type="text" id="data">
-        <button onclick="add()">เพิ่มข้อมูล</button>
-        <button onclick="displays()">ข้อมูลใน LinkedList</button>
+        <h1>LinkedList</h1>
+        <label for="" >กรอกข้อมูล(ใหม่) : </label>
+        <input type="text" id="data"> 
         <br>
+        <label for="">กรอกข้อมูล(ตำแหน่งเดิม) : </label>
+        <input type="text" id="dataRef">
+        <br>
+        <button onclick="push()">เพิ่มข้อมูล</button>
+        <button onclick="unshift()">เพิ่มเข้าจากด้านหน้า</button>
+        <button onclick="insert()">แทรกข้อมูล</button>
+        <button onclick="set()">เปลี่ยนข้อมูล</button>
+        <br>
+        <button onclick="find()">ค้นหาข้อมูลที่ต้องการ</button>
+        <button onclick="displays()">ข้อมูลใน LinkedList</button>
+        <button onclick="deleteData()">ลบข้อมูลที่ต้องการ</button>
+        <button onclick="shift()">ลบข้อมูลจากด้านหน้า</button>
+        <button onclick="pop()">ลบข้อมูลจากด้านหลัง</button>
+        <button onclick="deleteAllData()">ลบข้อมูลทั้งหมด</button>
+        <br>
+        <label for="" id="inputData"></label>
         <label for="" id="result"></label>
     </form>
     <script src="./index.js"></script>

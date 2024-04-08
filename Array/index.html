@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Array</title>
+    <link rel="stylesheet" href="../wholeWorld.css">
 </head>
 <body>
     <form action="#">
+        <h1>โปรแกรมรวมผลเลขคู่และรวมผลเลขคี่</h1>
         <label for="" >กรอกข้อมูล</label>
         <input type="text" id="data">
         <button onclick="add()">เพิ่มข้อมูล</button>
         <button onclick="results()">ผลลัพธ์</button>
+        <button onclick="remove()">ลบข้อมูล</button>
+        <button onclick="removeAll()">ลบข้อมูลทั้งหมด</button>
+        <br>
+        <label for="" id="inputData"></label>
         <br>
         <label for="" id="result"></label>
     </form>

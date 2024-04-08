@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../wholeWorld.css">
+    <title>Stack</title>
 </head>
 <body>
     <form action="#">
-        <label for="" >กรอกข้อมูล</label>
+        <h1>โปรแกรมคิดคำนวนเลขด้วยระบบ InfixtoPostFix</h1>
+        <label for="" >กรอกประโยคสัญลักษณ์ : </label>
         <input type="text" id="data">
-        <button onclick="add()">เพิ่มข้อมูล</button>
-        <button onclick="insert()">ผลลัพธ์</button>
+        <button onclick="result()">ผลลัพธ์</button>
+        <button onclick="removeAll()">ลบข้อมูล</button>
+        <h1 id="infixData"></h1>
+        <h1 id="postfixData"></h1>
+        <h1 id="evaluateData"></h1>
         <br>
         <label for="" id="result"></label>
     </form>

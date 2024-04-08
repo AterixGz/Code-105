@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tree</title>
+    <link rel="stylesheet" href="../wholeWorld.css">
 </head>
 <body>
     <form action="#">
+        <h1>BinaryTree</h1>
         <label for="" >กรอกข้อมูล</label>
         <input type="text" id="data">
         <button onclick="add()">เพิ่มข้อมูล</button>
-        <button onclick="insert()">ผลลัพธ์</button>
+        <button onclick="result()">ผลลัพธ์</button>
         <br>
-        <label for="" id="result"></label>
+        <label for="" id="result"></label> <br>
+        <label for="" id="preOrder"></label> <br>
+        <label for="" id="inOrder"></label> <br>
+        <label for="" id="postOrder"></label>
     </form>
     <script src="./index.js"></script>
 </body>
