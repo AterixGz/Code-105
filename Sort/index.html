@@ -22,10 +22,18 @@
         <input type="text" id="data">
         <button class="btn btn-primary" onclick="add()">เพิ่มข้อมูล</button>
         <br>
+        <label for="" id="result"></label> <br>
         <br>
-        <label for="" id="result"></label>
+        <label for="" id="beforebubble"></label> <br>
+        <label for="" id="bubbleSort"></label> <br>
+        
         <br>
-        <label for="" id="resultAfterSort"></label>
+        <label for="" id="beforeinsertion"></label> <br>
+        <label for="" id="insertionSort"></label> <br>
+        
+        <br>
+        <label for="" id="beforeshell"></label> <br>
+        <label for="" id="shellSort"></label>
     </form>
     <div class="container">
         <div class="row">
@@ -51,6 +59,9 @@
           </div>
           <div class="col">
             <button onclick="shell()" class="largeBtn btn btn-light ">ผลลัพธ์ ShellSort</button>
+        </div>
+        <div class="col">
+            <button onclick="totalsort()" class="largeBtn btn btn-light ">แสดงผล Sort ทั้งหมด</button>
         </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 class BubbleSort {
     sort(arr) {
-        console.time();
         const bub = [...arr]; // สร้างอาร์เรย์ใหม่เพื่อทำการจัดเก็บข้อมูลในการเรียงลำดับ
         const n = bub.length;
         
@@ -12,14 +11,12 @@ class BubbleSort {
                 }
             }
         }
-        console.timeEnd();
         return bub;
     }
 }
 
 class InsertionSort {
     sort(arr) {
-        console.time();
         const sortedArr = [...arr]; // สร้างอาร์เรย์ใหม่เพื่อทำการจัดเก็บข้อมูลในการเรียงลำดับ
         const n = sortedArr.length;
         
@@ -34,14 +31,12 @@ class InsertionSort {
             sortedArr[j + 1] = key;
         }
         
-        console.timeEnd();
         return sortedArr;
     }
 }
 
 class ShellSort {
     sort(arr) {
-        console.time();
         const sortedArr = [...arr]; // สร้างอาร์เรย์ใหม่เพื่อทำการจัดเก็บข้อมูลในการเรียงลำดับ
         const n = sortedArr.length;
         let gap = Math.floor(n / 2);
@@ -60,14 +55,20 @@ class ShellSort {
             gap = Math.floor(gap / 2);
         }
         
-        console.timeEnd();
         return sortedArr;
     }
 }
 
 let data = document.getElementById("data")
 let result = document.getElementById("result")
-let resultaftersort = document.getElementById("resultAfterSort")
+
+let beforebub = document.getElementById("beforebubble")
+let beforeins = document.getElementById("beforeinsertion")
+let beforeshell = document.getElementById("beforeshell")
+
+let labelbubbleSort = document.getElementById("bubbleSort")
+let labelinsertionSort = document.getElementById("insertionSort")
+let labelshellSort = document.getElementById("shellSort")
 let sucdata = parseFloat(data.value)
 let info = [] 
 let bubbleSort = new BubbleSort();
@@ -104,22 +105,42 @@ function randomNumber(){
 
 function bubble(){
     console.log("---BubbleSort---")
+    beforebub.innerHTML = "BeforeBubbleSort : " + info
+    console.time();
     const sortedArr = bubbleSort.sort(info);
-    resultaftersort.innerHTML = "BubbleSort : "+sortedArr.join(", ");
+    labelbubbleSort.innerHTML = "BubbleSort : "+sortedArr.join(", ");
+    console.timeEnd();
+    
     console.log(info)
     console.log(sortedArr.join(", "))
 }
 function insertion(){
     console.log("---InsertionSort---")
+    
+    beforeins.innerHTML = "BeforeInsertionSort : " + info
+    console.time();
     const sortedArr = insertionSort.sort(info);
-    resultaftersort.innerHTML = "InsertionSort : "+sortedArr.join(", ");
+    labelinsertionSort.innerHTML = "InsertionSort : "+sortedArr.join(", ");
+    console.timeEnd();
+    
     console.log(info)
     console.log(sortedArr.join(", "))
 }
 function shell(){
     console.log("---ShellSort---")
+    
+    beforeshell.innerHTML = "BeforeShellSort : " + info
+    console.time();
     const sortedArr = shellSort.sort(info);
-    resultaftersort.innerHTML = "ShellSort : "+sortedArr.join(", ");
+    labelshellSort.innerHTML = "ShellSort : "+sortedArr.join(", ");
+    console.timeEnd();
+    
     console.log(info)
     console.log(sortedArr.join(", "))
+}
+
+function totalsort() {
+    bubble();
+    insertion();
+    shell();
 }

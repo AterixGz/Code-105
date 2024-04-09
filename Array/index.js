@@ -15,7 +15,11 @@ function remove() {
     console.log(numbers)
     inData.innerHTML = "ข้อมูล : " + numbers
 }
-
+function unshift() {
+    numbers.unshift(data.value)
+    console.log(numbers)
+    inData.innerHTML = "ข้อมูล : " + numbers
+}
 function removeAll() {
     numbers = []
     data.value = ""
