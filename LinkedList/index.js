@@ -1,6 +1,6 @@
 // Class - Node //
-class Node{
-    constructor(elem){
+class Node {
+    constructor(elem) {
 
         // ตัวเก็บค่าของNode //
 
@@ -14,23 +14,23 @@ class Node{
 
 // Class - Linklist //
 
-class LinkedList{
-    constructor(){
-        this.firstNode = null;    
+class LinkedList {
+    constructor() {
+        this.firstNode = null;
         this.lastNode = null;
         this.lenght = 0;
     }
 
-// PUSH // เพิ่มเข้าลำดับสุดท้าย
+    // PUSH // เพิ่มเข้าลำดับสุดท้าย
 
     push(value) {
         const newNode = new Node(value);
         // จะแปลงค่า null เป็น True False //
-        if(!this.firstNode){
+        if (!this.firstNode) {
             this.firstNode = newNode;
             this.lastNode = newNode;
         }
-        else{
+        else {
             this.lastNode.next = newNode;
             this.lastNode = newNode;
         }
@@ -38,16 +38,16 @@ class LinkedList{
         return this;
     }
 
-// UNSHIFT //  เพิ่มเข้าลำดับแรก
+    // UNSHIFT //  เพิ่มเข้าลำดับแรก
 
-    unshift(value){
+    unshift(value) {
         const newNode = new Node(value);
-        if(!this.firstNode){
+        if (!this.firstNode) {
             this.firstNode = newNode;
             this.lastNode = newNode;
 
         }
-        else{
+        else {
             newNode.next = this.firstNode;
             this.firstNode = newNode;
         }
@@ -55,36 +55,36 @@ class LinkedList{
         return this
     }
 
-// GET //  ดึงข้อมูลจาก index
+    // GET //  ดึงข้อมูลจาก index
 
-    get (index){
-        if(index < 0 || index >= this.lenght){
+    get(index) {
+        if (index < 0 || index >= this.lenght) {
             return undefined
         }
-        else{
+        else {
             let curentNode = this.firstNode;
-            for(let i = 0 ;i<index;i++){
+            for (let i = 0; i < index; i++) {
                 curentNode = curentNode.next;
             }
             return curentNode;
         }
     }
 
-// Insert // แทรกข้อมูลลงใน index
+    // Insert // แทรกข้อมูลลงใน index
 
-    insert(index,value){
+    insert(index, value) {
         //check index ไม่เกิน lenght//
-        if(index < 0 || index > this.lenght){
+        if (index < 0 || index > this.lenght) {
             return false;
         }
-        if(index === 0){
+        if (index === 0) {
             return this.unshift(value);
         }
-        if(index === this.lenght){
+        if (index === this.lenght) {
             return this.push(value);
         }
         const newNode = new Node(value);
-        let beforeNode = this.get(index-1);
+        let beforeNode = this.get(index - 1);
         newNode.next = beforeNode.next;
         beforeNode.next = newNode;
         this.lenght++;
@@ -92,20 +92,20 @@ class LinkedList{
     }
 
     // pop // เอาข้อมูลสุดท้ายออก
-    pop(){
-        if(this.lenght == 0){
+    pop() {
+        if (this.lenght == 0) {
             return undefined
-        } 
+        }
         let curentNode = this.firstNode;
         let beforeNode = this.firstNode;
-        while(curentNode.next != null){
+        while (curentNode.next != null) {
             beforeNode = curentNode;
             curentNode = curentNode.next;
         }
         this.lastNode = beforeNode;
         this.lastNode.next = null;
         this.lenght--;
-        if(this.lenght === 0){
+        if (this.lenght === 0) {
             this.firstNode = null;
             this.lastNode = null;
         }
@@ -113,97 +113,138 @@ class LinkedList{
     }
 
     // shift // เอาข้อมูลแรกออก
-    shift(){
-        if(this.lenght === 0){
+    shift() {
+        if (this.lenght === 0) {
             return undefined;
         }
         let curentNode = this.firstNode;
         this.firstNode = this.firstNode.next;
         curentNode.next = null;
         this.lenght--;
-        if(this.lenght === 0){
+        if (this.lenght === 0) {
             this.lastNode = null;
         }
         return curentNode;
     }
     // remove // ลบข้อมูลออกจาก ลิงค์ลิสต์
-    remove(index){
-        if(index <0 || index >= this.lenght){
+    remove(index) {
+        // if (!this.head) {
+        //     return; // Linked List ว่างเปล่า
+        // }
+        // if (this.head.data === data) {
+        //     this.head = this.head.next; // ลบโหนดแรก
+        //     return;
+        // }
+        // let current = this.head;
+
+        // // วน loop เพื่อแสดงข้อมูลในโหนดทุกโหนด
+        // while (current) {
+        //     console.log(current.data);
+        // let previous = null;
+        // while (current !== null) {
+        //     if (current.data === data) {
+        //         previous.next = current.next;
+        //         return;
+        //     }
+        //     previous = current;
+        //     current = current.next;
+        // }
+
+
+        // if (index < 0 || index >= this.length) {
+        //     return undefined;
+        // }
+        // if (index === 0) {
+        //     return this.shift();
+        // }
+        // let beforeNode = this.get(index - 1);
+        // if (!beforeNode || !beforeNode.next) {
+        //     return undefined;
+        // }
+        // let currentNode = beforeNode.next;
+        // beforeNode.next = currentNode.next;
+        // this.length--;
+        // return currentNode;
+
+        
+        if(index < 0 || index >= this.length){
             return undefined;
         }
         if(index === 0){
             return this.shift();
         }
-        if (index === this.lenght-1){
-            return this.pop();
-        }
         let beforeNode = this.get(index-1);
-        let curentNode = beforeNode.next;
-        beforeNode.next = curentNode.next;
-        curentNode.next = null;
-        this.lenght--;
-        return curentNode;
-    }
-    // set // กำหนดลงข้อมูลลงไปใน INDEX
-        set(index,value){
-            if(index < 0 || index >= this.lenght){
-                return false;
-            }
-           
-            else{
-                let temp = this.get (index);
-                temp.element = value;
-                return true;
-            }
+        if (!beforeNode || !beforeNode.next) {
+            return undefined;
         }
+        let currentNode = beforeNode.next;
+        beforeNode.next = currentNode.next;
+        this.length--;
+        return currentNode;
+    }
+
+    // set // กำหนดลงข้อมูลลงไปใน INDEX
+    set(index, value) {
+        if (index < 0 || index >= this.lenght) {
+            return false;
+        }
+
+        else {
+            let temp = this.get(index);
+            temp.element = value;
+            return true;
+        }
+    }
 
 
 }
 
 // MAIN //
 let d = document.getElementById("data");
+let inputIndex = document.getElementById("index");
 let r = document.getElementById("result");
 let a = document.getElementById("answer")
 let mylist = new LinkedList();
 
 // PUSH // เพิ่มเข้าลำดับสุดท้าย
 
-function pushData(){
+function pushData() {
     mylist.push(d.value);
     displayData();
     d.value = "";
 }
 
-function displayData(){
+function displayData() {
     r.innerHTML = "";
-    for(let i = 0; i < mylist.lenght; i++){
+    for (let i = 0; i < mylist.lenght; i++) {
         let data = mylist.get(i);
         r.innerHTML += data.element + " ";
-        if(i !== mylist.length - 1){
+        if (i !== mylist.length - 1) {
             r.innerHTML += "==> ";
         }
     }
 }
 
 // UNSHIFT //  เพิ่มเข้าลำดับแรก
-function unshiftData(){
+function unshiftData() {
     mylist.unshift(d.value);
     displayData();
     d.value = "";
 }
 
 // GET //  ดึงข้อมูลจาก index
-function getData(){
+function getData() {
+    debugger
     let index = parseInt(d.value);
-    if(isNaN(index)){
+    if (isNaN(index)) {
         a.innerHTML = "Invalid index";
         displayData();
         d.value = "";
         return;
     }
     let data = mylist.get(index);
-    if(!data){
-        a.innerHTML = "Index out of bounds";
+    if (!data) {
+        a.innerHTML = "ไม่มีตำแหน่งนี้ใน Linkedlist ปัจจุบัน";
         displayData();
         d.value = "";
         return;
@@ -215,16 +256,16 @@ function getData(){
 }
 
 // remove // ลบข้อมูลออกจาก ลิงค์ลิสต์
-function removeData(){
+function removeData() {
     let index = parseInt(d.value);
-    if(isNaN(index)){
+    if (isNaN(index)) {
         a.innerHTML = "Invalid index";
         displayData();
         d.value = "";
         return;
     }
     let removed = mylist.remove(index);
-    if(removed === undefined){
+    if (removed === undefined) {
         a.innerHTML = "Index out of bounds";
         displayData();
         d.value = "";
@@ -232,9 +273,9 @@ function removeData(){
     }
 }
 // shift // เอาข้อมูลแรกออก
-function shiftData(){
+function shiftData() {
     let removed = mylist.shift();
-    if(removed === undefined){
+    if (removed === undefined) {
         a.innerHTML = "List is empty";
     } else {
         displayData();
@@ -242,9 +283,9 @@ function shiftData(){
 }
 
 // pop // เอาข้อมูลสุดท้ายออก
-function popData(){
+function popData() {
     let removed = mylist.pop();
-    if(removed === undefined){
+    if (removed === undefined) {
         a.innerHTML = "List is empty";
     } else {
         displayData();
@@ -252,9 +293,9 @@ function popData(){
 }
 
 // Insert // แทรกข้อมูลลงใน index
-function insertData(){
+function insertData() {
     let index = parseInt(prompt("เลือก data :"));
-    if(isNaN(index)){
+    if (isNaN(index)) {
         a.innerHTML = "Invalid index";
         return;
     }
@@ -263,14 +304,14 @@ function insertData(){
     displayData();
 }
 // set // กำหนดลงข้อมูลลงไปใน INDEX
-function setData(){
+function setData() {
     let index = parseInt(prompt("เลือก data :"));
-    if(isNaN(index)){
+    if (isNaN(index)) {
         a.innerHTML = "Invalid index";
         return;
     }
     let value = prompt("ใส่ค่า :");
-    if(mylist.set(index, value)){
+    if (mylist.set(index, value)) {
         displayData();
     } else {
         a.innerHTML = "Index out of bounds";
@@ -290,3 +331,6 @@ function setData(){
 
 
 
+let data = "test"
+console.log("data = "+ data)
+console.log(`data = ${data}`)
