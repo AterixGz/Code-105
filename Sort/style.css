@@ -6,3 +6,12 @@ html {
     padding-top: 30px;
     text-align: center;
 }
+
+
+.largeBtn {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 10px 0;
+}

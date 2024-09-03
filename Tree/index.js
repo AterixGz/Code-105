@@ -1,29 +1,29 @@
-// สร้าง constructor function สำหรับ Node
-function TreeNode(value) {
-    this.value = value;
+class TreeNode {
+  constructor(data) {
+    this.data = data;
     this.left = null;
     this.right = null;
   }
-  
-  // สร้าง constructor function สำหรับ Tree
-  function BinaryTree() {
+}
+
+class BinaryTree {
+  constructor() {
     this.root = null;
   }
-  
-  // เพิ่ม method เพื่อใส่โหนดใน Tree
-  BinaryTree.prototype.insert = function(value) {
-    var newNode = new TreeNode(value);
-    
+
+  // เพิ่มโหนดใหม่ในต้นไม้แบบทวิภาค
+  insert(data) {
+    const newNode = new TreeNode(data);
+
     if (this.root === null) {
       this.root = newNode;
     } else {
       this.insertNode(this.root, newNode);
     }
   }
-  
-  // เพิ่ม method เพื่อช่วยในการใส่โหนดใน Tree
-  BinaryTree.prototype.insertNode = function(node, newNode) {
-    if (newNode.value < node.value) {
+
+  insertNode(node, newNode) {
+    if (newNode.data < node.data) {
       if (node.left === null) {
         node.left = newNode;
       } else {
@@ -37,31 +37,76 @@ function TreeNode(value) {
       }
     }
   }
-  // สร้าง instance ของ Tree
-  var tree = new BinaryTree();
 
-let data = document.getElementById("data")
-let result = document.getElementById("result")
-let info = []
-
-  function add(){
-    info.push(data.value)
-    console.log(data.value)
-    data.value = ""
-    result.innerHTML = info
+  // แสดงโหนดในต้นไม้แบบทวิภาคโดยใช้ Preorder traversal (NLR)
+  preorder() {
+    const result = [];
+    this.preorderTraversal(this.root, result);
+    return result;
   }
 
-  function insert(){
-    for (const result of info) {
-        tree.insert(result)
+  preorderTraversal(node, result) {
+    if (node !== null) {
+      result.push(node.data);
+      this.preorderTraversal(node.left, result);
+      this.preorderTraversal(node.right, result);
     }
-    console.log(tree)
+  }
+
+  // แสดงโหนดในต้นไม้แบบทวิภาคโดยใช้ Inorder traversal (LNR)
+  inorder() {
+    const result = [];
+    this.inorderTraversal(this.root, result);
+    return result;
+  }
+
+  inorderTraversal(node, result) {
+    if (node !== null) {
+      this.inorderTraversal(node.left, result);
+      result.push(node.data);
+      this.inorderTraversal(node.right, result);
+    }
+  }
+
+  // แสดงโหนดในต้นไม้แบบทวิภาคโดยใช้ Postorder traversal (LRN)
+  postorder() {
+    const result = [];
+    this.postorderTraversal(this.root, result);
+    return result;
+  }
+
+  postorderTraversal(node, result) {
+    if (node !== null) {
+      this.postorderTraversal(node.left, result);
+      this.postorderTraversal(node.right, result);
+      result.push(node.data);
+    }
+  }
 }
 
-// tree.insert(10)
-// tree.insert(1)
-// tree.insert(20)
-// tree.insert(30)
-// tree.insert(5)
-// tree.insert(8)
-// console.log(tree)
+
+let data = document.getElementById("data");
+let resultshow = document.getElementById("result")
+let preOrder = document.getElementById("preOrder");
+let inOrder = document.getElementById("inOrder");
+let postOrder = document.getElementById("postOrder");
+let sucdata = data.value
+let inputtree = []
+// สร้างต้นไม้แบบทวิภาค
+const binaryTree = new BinaryTree();
+
+function add() {
+  binaryTree.insert(parseFloat(data.value));
+  inputtree.push(parseFloat(data.value));
+  resultshow.innerHTML = "ข้อมูลที่กรอก : " + inputtree
+  data.value = ""
+}
+
+function result() {
+  preOrder.innerHTML = "Preorder traversal:"+ binaryTree.preorder()
+  inOrder.innerHTML = "Inorder traversal:"+ binaryTree.inorder()
+  postOrder.innerHTML = "Postorder traversal:"+ binaryTree.postorder()
+}
+
+console.log(binaryTree)
+// แสดงผลลัพธ์ของการท่องต้นไม้แบบ Preorder, Inorder, และ Postorder
