@@ -11,17 +11,18 @@
 </head>
 
 <body class="container">
-    <form action="#">
+    <form action="#" class="my-5">
         <label for="">กรอกข้อมูล</label>
         <input type="text" id="data">
-        <button class="btn btn-primary" onclick="add()">เพิ่มข้อมูล</button>
-        <button onclick="remove()">ลบข้อมูล</button>
-        <button onclick="removeAll()">ลบข้อมูลทั้งหมด</button>
-        <button onclick="randomNumber()">สุ่มชุดตัวเลข 10 ตัว</button>
         <br>
-        <button onclick="bubble()">ผลลัพธ์ BubbleSort</button>
-        <button onclick="insertion()">ผลลัพธ์ InsertionSort</button>
-        <button onclick="shell()">ผลลัพธ์ ShellSort</button>
+        <button class="btn btn-primary my-3" onclick="add()">เพิ่มข้อมูล</button>
+        <button class="btn btn-danger my-3" onclick="remove()">ลบข้อมูล</button>
+        <button class="btn btn-danger my-3" onclick="removeAll()">ลบข้อมูลทั้งหมด</button>
+        <br>
+        <button class="btn btn-dark my-3" onclick="randomNumber()">สุ่มชุดตัวเลข 10 ตัว</button>
+        <button class="btn btn-dark" onclick="bubble()">ผลลัพธ์ BubbleSort</button>
+        <button class="btn btn-dark" onclick="insertion()">ผลลัพธ์ InsertionSort</button>
+        <button class="btn btn-dark" onclick="shell()">ผลลัพธ์ ShellSort</button>
         <br>
         <label for="" id="result"></label>
         <br>
@@ -31,6 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-</body>
+    </body>
 
 </html>

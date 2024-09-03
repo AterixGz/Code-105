@@ -13,7 +13,7 @@ let result = document.getElementById("result")
 
 function results() {
     console.log(data.value)
-    console.log("Fibonacci(6) =", fibonacci(data.value)); // ผลลัพธ์: 5
+    console.log(`Fibonacci(${data.value}) =`, fibonacci(data.value)); // ผลลัพธ์: 5
     result.innerHTML = `Fibonacci(${data.value}) = `+fibonacci(data.value)
     data.value = ""
 }
