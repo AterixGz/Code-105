@@ -21,13 +21,14 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .display {
-            width: 100%;
+            width: 95%;
             height: 40px;
             margin-bottom: 10px;
             text-align: right;
             padding-right: 10px;
             font-size: 24px;
             border: 1px solid #ccc;
+            border-radius: 5px;
         }
         .buttons {
             display: grid;
@@ -41,12 +42,13 @@
             background-color: #eee;
             border: 1px solid #ccc;
             cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <input type="text" id="display" class="display" disabled>
+        <input type="text" id="display" class="display" placeholder="ใส่เลขที่จะคำนวน" disabled>
         <div class="buttons">
             <button onclick="addToStack(7)">7</button>
             <button onclick="addToStack(8)">8</button>
@@ -65,7 +67,7 @@
             
             <button onclick="clearDisplay()">C</button>
             <button onclick="addToStack(0)">0</button>
-            <button onclick="removeLast()">DEL</button>
+            <button onclick="removeLast()">ลบ</button>
             <button onclick="addToStack('/')">/</button>
         </div>
     </div>
