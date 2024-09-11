@@ -34,8 +34,9 @@
                 <center>เล่มที/Book No./____________</center>
             </td>
             <td style="background-color: rgb(199, 181, 250); border-radius: 30px; width: 60%; height: 100px;">
-                <center>
-                    <!-- <div style="width: 400px;height: 100px; background-color: rgb(199, 181, 250); border-radius: 30px;"></div> -->
+                <center> 
+                    <!-- data -->
+                    <p id="company-name"><var>[COMPANY-NAME]</var></p>
                 </center>
             </td>
             <td>
@@ -56,15 +57,15 @@
         <table style="width: 100%;">
             <tr>
                 <td>นาย / Name </td>
-                <td style="border-bottom: 1px solid black; width: 30%;"></td>
+                <td id="buyer-name" style="border-bottom: 1px solid black; width: 30%;"><var>[BUYER-NAME]</var></td>
                 <td>วันที่ / Date</td>
-                <td style="border-bottom: 1px solid black; width: 30%"></td>
+                <td id="date" style="border-bottom: 1px solid black; width: 30%"><var>[DATE]</var></td>
             </tr>
             <tr>
                 <td>ที่อยู่ / Address </td>
-                <td style="border-bottom: 1px solid black;"></td>
+                <td id="address" style="border-bottom: 1px solid black;"><var>[ADDRESS]</var></td>
                 <td>ทะเบียนการค้า / Commercial License</td>
-                <td style="border-bottom: 1px solid black;"></td>
+                <td id="commercial-license" style="border-bottom: 1px solid black;"><var>[COMMERCIAL-LICENSE]</var></td>
             </tr>
         </table>
 
@@ -84,12 +85,14 @@
                     <center>จำนวนเงิน<br>Amount</center>
                 </td>
             </tr>
-            <tr style="height: 30px;">
-                <td style="border: 1px solid rgb(130, 112, 180);"></td>
-                <td style="border: 1px solid rgb(130, 112, 180);"></td>
-                <td style="border: 1px solid rgb(130, 112, 180);"></td>
-                <td style="border: 1px solid rgb(130, 112, 180);"></td>
-                <td style="border: 1px solid rgb(130, 112, 180); width: 5%;"></td>
+            <tr id="items">
+                <!-- <tr style="height: 30px;">
+                <td style="border: 1px solid rgb(130, 112, 180);" align="center">2,500</td>
+                <td style="border: 1px solid rgb(130, 112, 180);">แท่งไฟมหัศจรรย์ 7 สี โทรออกได้</td>
+                <td style="border: 1px solid rgb(130, 112, 180);" align="center">99</td>
+                <td style="border: 1px solid rgb(130, 112, 180);" align="right"> 247,500</td>
+                <td style="border: 1px solid rgb(130, 112, 180); width: 5%;">-</td>
+            </tr> -->
             </tr>
             <tr style="height: 30px;">
                 <td style="border: 1px solid rgb(130, 112, 180);"></td>
@@ -116,21 +119,23 @@
                 <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); background-color: rgb(199, 181, 250)">
                     <center>บาท<br>Baht</center>
                 </td>
-                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); background-color: rgb(199, 181, 250)"></td>
+                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); background-color: rgb(199, 181, 250)">
+                    สองแสนสี่หมื่นเจ็ดพันห้าร้อยบาทถ้วน</td>
                 <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); background-color: rgb(199, 181, 250)">
                     <center>รวมเงิน<br>Total</center>
                 </td>
-                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180);"></td>
-                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); width: 5%;"></td>
+                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180);" align="right">247,500</td>
+                <td rowspan="2" style="border: 1px solid rgb(130, 112, 180); width: 5%;">-</td>
             </tr>
 
             <tr style="height: 30px;">
             </tr>
         </table>
 
-        <p style="margin-left: 10px;">ผู้รับเงิน<br>Collector  ________________________________________</p>
+        <p style="margin-left: 10px;">ผู้รับเงิน<br>Collector <span id="collector" style="text-decoration: underline;">
+                <var>[COLLECTOR]</var></span></p>
     </div>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
 </body>
 
 </html>
