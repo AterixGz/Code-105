@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bouncing Ball Animation</title>
+  <title>Bouncing Object Animation</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <div class="container">
-    <h1 class="text-center">Bouncing Ball Animation</h1>
-    <div class="frame">
-      <div class="ball"></div>
+    <div id="field" class="field">
+      <div id="ball" class="ball"></div>
     </div>
     <div class="controls text-center mt-3">
-      <button id="toggle-btn" class="btn btn-primary">Pause</button>
-      <button id="change-ball-btn" class="btn btn-secondary">บาส</button>
-      <button id="change-ball-btn" class="btn btn-secondary">ตัวเอง</button>
-      <button id="change-ball-btn" class="btn btn-secondary">button</button>
-      <button id="change-ball-btn" class="btn btn-secondary">button</button>
+      <button id="run" class="btn btn-primary" onclick="runClick()">Run</button>
+      <button id="none" class="btn btn-outline-dark" onclick="changeBall('none')">None</button>
+      <button id="basketball" class="btn btn-outline-primary" onclick="changeBall('basketball-pic')">Basketball</button>
+      <button id=" football" class="btn btn-outline-primary" onclick="changeBall('football-pic')">Football</button>
+      <button id=" volleyball" class="btn btn-outline-primary" onclick="changeBall('volleyball-pic')">Volleyball</button>
+      <button id=" human" class="btn btn-outline-primary" onclick="changeBall('human-pic')">Human</button>
+      <button id=" cartoon" class="btn btn-outline-primary" onclick="changeBall('cartoon-pic')">Cartoon</button>
+      <button id=" logo" class="btn btn-outline-primary" onclick="changeBall('logo-pic')">Logo</button>
     </div>
   </div>
 
-  <script src="index.js"></script>
+  <script src=" ./index.js"></script>
 </body>
+
 </html>
